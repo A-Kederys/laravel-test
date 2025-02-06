@@ -9,7 +9,8 @@ class MoviesController extends Controller
 {
     //
     public function index(){
-        return view('movies');
+        $movies = Movies::all();
+        return view('movies', compact('movies'));
     }
 
     public function viewForm(){
@@ -22,7 +23,7 @@ class MoviesController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'duration' => 'required|integer|min:1',
-            'release_year' => 'required|integer|min:1900|max:' . date('Y'),
+            'release_year' => 'required|integer|min:1900|max:' . (date('Y') + 1),
             'genre' => 'nullable|string',
             'language' => 'nullable|string',
             'director' => 'nullable|string',

@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 Route::get('/movies', [MoviesController::class, 'index'])->name('movies'); // Movie list
 Route::get('/movies/add', [MoviesController::class, 'viewForm'])->name('movies.add'); // Movie form
-Route::post('/movies', [MoviesController::class, 'store'])->name('movies.store');
+Route::post('/movies', [MoviesController::class, 'store'])->name('movies.store'); // Handling form submission for movie add
 
 Route::middleware([
     'auth:sanctum',
